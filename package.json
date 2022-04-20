@@ -68,6 +68,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "gsap": "^3.10.3"
+    "gsap": "^3.10.3",
+    "rollup-plugin-scss": "^3.0.0"
   }
 }
