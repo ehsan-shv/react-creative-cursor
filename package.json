@@ -1,5 +1,7 @@
 {
   "version": "0.1.0",
+  "name": "react-creative-cursor",
+  "author": "Ehsan Shahvirdi",
   "license": "MIT",
   "description": "A creative and customizable React cursor component.",
   "keywords": [
@@ -42,8 +44,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-creative-cursor",
-  "author": "Ehsan Shahvirdi",
   "module": "dist/react-creative-cursor.esm.js",
   "size-limit": [
     {
@@ -62,6 +62,7 @@
     "husky": "^7.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "sass": "^1.50.1",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
