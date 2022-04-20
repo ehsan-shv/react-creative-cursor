@@ -1,0 +1,39 @@
+.c-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  border-radius: 100%;
+  contain: layout style size;
+  pointer-events: none;
+  will-change: transform;
+  background-color: #000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s, color 0.4s;
+
+  &.exclusion {
+    @supports (mix-blend-mode: exclusion) {
+      background-color: #fff;
+      mix-blend-mode: exclusion;
+    }
+  }
+
+  &__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0) rotate(10deg);
+    will-change: transform;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    mix-blend-mode: inherit;
+  }
+}

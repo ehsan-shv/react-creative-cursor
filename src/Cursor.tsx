@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useLayoutEffect, useRef } from 'react';
-import './Cursor.scss';
+import './cursor.scss';
 
 import { gsap, Expo } from 'gsap';
 
