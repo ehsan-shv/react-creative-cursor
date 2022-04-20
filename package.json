@@ -4,6 +4,10 @@
   "author": "Ehsan Shahvirdi",
   "license": "MIT",
   "description": "A creative and customizable React cursor component.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehsan-shv/react-creative-cursor.git"
+  },
   "keywords": [
     "react",
     "react-cursor",
