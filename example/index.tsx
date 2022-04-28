@@ -6,8 +6,8 @@ import { Cursor } from '../src/index';
 const App = () => {
   return (
     <div>
-      <h1>Hello World!</h1>
-      <Cursor />
+      <h1>Hello World!!</h1>
+      <Cursor isGelly={true} />
     </div>
   );
 };

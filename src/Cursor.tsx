@@ -52,32 +52,16 @@ function useTicker(callback: () => void, paused?: boolean) {
 
 interface CursorProps {
   isGelly?: boolean;
-  defaultAnimationDuration?: number;
-  defaultAnimationEase?: string | gsap.EaseFunction;
-  stickAnimationAmount?: number;
-  stickAnimationDuration?: number;
-  stickAnimationEase?: string | gsap.EaseFunction;
-  magneticAnimationAmount?: number;
-  magneticAnimationDuration?: number;
-  magneticAnimationEase?: string | gsap.EaseFunction;
-  sizeAnimationDuration?: 0.7;
-  sizeAnimationEase?: string | gsap.EaseFunction;
+  animationDuration?: number;
+  animationEase?: string | gsap.EaseFunction;
   gellyAnimationAmount?: number;
   cursorSize?: number;
 }
 
 export const Cursor: FC<CursorProps> = ({
   isGelly = false,
-  defaultAnimationDuration = 1.25,
-  defaultAnimationEase = Expo.easeOut,
-  stickAnimationAmount = 0.15,
-  stickAnimationDuration = 0.5,
-  stickAnimationEase = Expo.easeOut,
-  magneticAnimationAmount = 0.2,
-  magneticAnimationDuration = 0.7,
-  magneticAnimationEase = Expo.easeOut,
-  sizeAnimationDuration = 0.7,
-  sizeAnimationEase = Expo.easeOut,
+  animationDuration = 1.25,
+  animationEase = Expo.easeOut,
   gellyAnimationAmount = 50,
   cursorSize = 48,
 }) => {
@@ -127,64 +111,11 @@ export const Cursor: FC<CursorProps> = ({
   ]);
 
   useLayoutEffect(() => {
-    const stickElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-stick]'
-    );
-    const magneticElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-magnetic]'
-    );
-    const colorElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-color]'
-    );
-    const textElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-text]'
-    );
-    const exclusionElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-exclusion]'
-    );
-    const sizeElements = document.querySelectorAll<HTMLElement>(
-      '[data-cursor-size]'
-    );
-
-    if (sizeElements.length && isGelly) {
-      console.error(
-        'Gelly cursor is not compatible with setting size to cursor. Please disable isGelly or remove [data-cursor-exclusion] elements.'
-      );
-      return;
-    }
-
-    let stickStatus = false;
-
     const setFromEvent = (e: MouseEvent) => {
-      const areatarget = e.target as HTMLElement;
-      let target: Element | null;
-      let bound: DOMRect | undefined;
-
       let x = e.clientX;
       let y = e.clientY;
-      let duration = defaultAnimationDuration;
-      let ease = defaultAnimationEase;
-
-      if (stickStatus) {
-        target = areatarget.querySelector(
-          areatarget.dataset['cursorStick'] as string
-        );
-        bound = target?.getBoundingClientRect();
-        if (target && bound) {
-          y =
-            bound.top +
-            target.clientHeight / 2 -
-            (bound.top + target.clientHeight / 2 - e.clientY) *
-              stickAnimationAmount;
-          x =
-            bound.left +
-            target.clientWidth / 2 -
-            (bound.left + target.clientWidth / 2 - e.clientX) *
-              stickAnimationAmount;
-          duration = stickAnimationDuration;
-          ease = stickAnimationEase;
-        }
-      }
+      let duration = animationDuration;
+      let ease = animationEase;
 
       gsap.to(pos, {
         x: x,
@@ -206,136 +137,6 @@ export const Cursor: FC<CursorProps> = ({
     // overall mouse move listener
     window.addEventListener('mousemove', e => {
       setFromEvent(e);
-    });
-
-    // sticks event listener
-    stickElements.forEach(el => {
-      el.addEventListener('mouseenter', () => (stickStatus = true));
-    });
-    stickElements.forEach(el => {
-      el.addEventListener('mouseleave', () => (stickStatus = false));
-    });
-
-    // magnetics event listener
-    magneticElements.forEach(el => {
-      el.addEventListener('mousemove', e => {
-        const areatarget = e.target as HTMLElement;
-        gsap.to(areatarget, {
-          x:
-            (e.clientX -
-              (areatarget.offsetLeft - window.pageXOffset) -
-              areatarget.clientWidth / 2) *
-            magneticAnimationAmount,
-          y:
-            (e.clientY -
-              (areatarget.offsetTop - window.pageYOffset) -
-              areatarget.clientHeight / 2) *
-            magneticAnimationAmount,
-          duration: magneticAnimationDuration,
-          ease: magneticAnimationEase,
-          overwrite: true,
-        });
-      });
-    });
-    magneticElements.forEach(el => {
-      el.addEventListener('mouseleave', e => {
-        const areatarget = e.target as HTMLElement;
-        gsap.to(areatarget, {
-          x: 0,
-          y: 0,
-          duration: magneticAnimationDuration,
-          ease: magneticAnimationEase,
-          overwrite: true,
-        });
-      });
-    });
-
-    // colors event listener
-    colorElements.forEach(el => {
-      el.addEventListener('mouseenter', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          cursor.current.style.backgroundColor = `${e.target.dataset['cursorColor']}`;
-        }
-      });
-    });
-    colorElements.forEach(el => {
-      el.addEventListener('mouseleave', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          cursor.current.style.backgroundColor = '';
-        }
-      });
-    });
-
-    // text event listener
-    textElements.forEach(el => {
-      el.addEventListener('mouseenter', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursorInner.current) {
-          cursorInner.current.textContent = `${e.target.dataset['cursorText']}`;
-          gsap.to(`#${cursorInner.current.id}`, {
-            scale: 1,
-            rotate: 0,
-            duration: sizeAnimationDuration,
-            ease: sizeAnimationEase,
-          });
-        }
-      });
-    });
-    textElements.forEach(el => {
-      el.addEventListener('mouseleave', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursorInner.current) {
-          cursorInner.current.textContent = '';
-          gsap.to(`#${cursorInner.current.id}`, {
-            scale: 0,
-            rotate: '10deg',
-            duration: sizeAnimationDuration,
-            ease: sizeAnimationEase,
-          });
-        }
-      });
-    });
-
-    // sizes event listener
-    sizeElements.forEach(el => {
-      el.addEventListener('mouseenter', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          gsap.to(`#${cursor.current.id}`, {
-            width: `${e.target.dataset['cursorSize']}`,
-            height: `${e.target.dataset['cursorSize']}`,
-            duration: sizeAnimationDuration,
-            ease: sizeAnimationEase,
-            overwrite: true,
-          });
-        }
-      });
-    });
-    sizeElements.forEach(el => {
-      el.addEventListener('mouseleave', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          gsap.to(`#${cursor.current.id}`, {
-            width: `${cursorSize}`,
-            height: `${cursorSize}`,
-            duration: sizeAnimationDuration,
-            ease: sizeAnimationEase,
-            overwrite: true,
-          });
-        }
-      });
-    });
-
-    //exclusions event listener
-    exclusionElements.forEach(el => {
-      el.addEventListener('mouseenter', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          cursor.current.classList.add('exclusion');
-        }
-      });
-    });
-    exclusionElements.forEach(el => {
-      el.addEventListener('mouseleave', (e: MouseEvent) => {
-        if (e.target instanceof HTMLElement && cursor.current) {
-          cursor.current.classList.remove('exclusion');
-        }
-      });
     });
 
     return () => {
