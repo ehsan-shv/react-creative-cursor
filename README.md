@@ -4,10 +4,27 @@
 
 > A creative and customizable React cursor component. (Include Gelly Animation)
 
+<a href="https://react-creative-cursor-demo.vercel.app/">Demo</a>
+
 ## Installation
 
 ```
 npm i react-creative-cursor
+```
+
+## Example
+
+```ts
+import { Cursor } from 'react-creative-cursor';
+import 'react-creative-cursor/dist/styles.css';
+
+const App = () => {
+  return (
+    <>
+      <Cursor isGelly={true} />
+    </>
+  );
+};
 ```
 
 ## Options
