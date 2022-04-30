@@ -117,19 +117,32 @@ export const Cursor: FC<CursorProps> = ({
       let duration = animationDuration;
       let ease = animationEase;
 
-      gsap.to(pos, {
-        x: x,
-        y: y,
+      gsap.set(pos, {});
+
+      const xTo = gsap.quickTo(pos, 'x', {
         duration,
         ease,
         overwrite: true,
         onUpdate: () => {
-          if (pos.x && pos.y) {
+          if (pos.x) {
             vel.x = x - pos.x;
+          }
+        },
+      });
+
+      const yTo = gsap.quickTo(pos, 'y', {
+        duration,
+        ease,
+        overwrite: true,
+        onUpdate: () => {
+          if (pos.y) {
             vel.y = y - pos.y;
           }
         },
       });
+
+      xTo(x);
+      yTo(y);
 
       loop();
     };
