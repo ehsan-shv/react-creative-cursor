@@ -29,10 +29,10 @@ const App = () => {
 
 ## Options
 
-| Props                | Value Type                   | Default Value |
-| -------------------- | ---------------------------- | ------------- |
-| isGelly              | boolean                      | false         |
-| animationDuration    | number                       | 1.25          |
-| animationEase        | `string | gsap.EaseFunction` | Expo.easeOut  |
-| gellyAnimationAmount | number                       | 50            |
-| cursorSize           | number                       | 48            |
+| Props                | Value Type                    | Default Value |
+| -------------------- | ----------------------------- | ------------- |
+| isGelly              | boolean                       | false         |
+| animationDuration    | number                        | 1.25          |
+| animationEase        | `string \| gsap.EaseFunction` | Expo.easeOut  |
+| gellyAnimationAmount | number                        | 50            |
+| cursorSize           | number                        | 48            |
