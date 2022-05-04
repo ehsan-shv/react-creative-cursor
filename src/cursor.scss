@@ -3,20 +3,12 @@
   top: 0;
   left: 0;
   z-index: 999;
+  pointer-events: none;
+  will-change: transform, height, width, color;
   border-radius: 100%;
   contain: layout style size;
-  pointer-events: none;
-  will-change: transform;
-  background-color: #000;
   transform: translate(-50%, -50%);
-  transition: opacity 0.3s, color 0.4s;
-
-  &.exclusion {
-    @supports (mix-blend-mode: exclusion) {
-      background-color: #fff;
-      mix-blend-mode: exclusion;
-    }
-  }
+  opacity: 0;
 
   &__inner {
     position: absolute;
@@ -27,13 +19,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0) rotate(10deg);
-    will-change: transform;
-    color: #fff;
+    transform: scale(0);
+    opacity: 0;
     font-size: 16px;
     line-height: 20px;
     text-align: center;
     letter-spacing: -0.01em;
     mix-blend-mode: inherit;
+    will-change: transform, height, width, opacity, color;
+    border-radius: 100%;
+    contain: layout style size;
+
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    filter: invert(1);
+  }
+}
+
+[data-cursor-size],
+[data-cursor-background-image],
+[data-cursor-color],
+[data-cursor-exclusion],
+[data-cursor-text],
+[data-cursor-stick],
+[data-cursor-magnetic] {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    pointer-events: painted;
+    transform: translate(0, 0) !important;
   }
 }
