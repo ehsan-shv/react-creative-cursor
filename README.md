@@ -39,7 +39,7 @@ const index = () => {
 
 **It's essential to add the Cursor component to each route if you want to use all options properly. otherwise, if you want to use cursor follower, feel free and import in app or layout component**.
 
-## Magetic Cursor
+## Magnetic Cursor
 
 ```tsx
 import { Cursor } from 'react-creative-cursor';
@@ -50,7 +50,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-magnetic>
-        <h1>Magetic Cursor<h1>
+        <h1>Magnetic Cursor<h1>
       </div>
     </div>
   );
