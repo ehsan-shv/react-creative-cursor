@@ -169,27 +169,27 @@ const index = () => {
 
 ## Props
 
-| Props                            | Value Type                               | Default Value  |
-| -------------------------------- | ---------------------------------------- | -------------- |
-| isGelly                          | boolean                                  | false          |
-| animationDuration                | number                                   | 1.25           |
-| animationEase                    | `string | gsap.EaseFunction | undefined` | Expo.easeOut   |
-| gellyAnimationAmount             | number                                   | 50             |
-| stickAnimationAmount             | number                                   | 0.09           |
-| stickAnimationDuration           | number                                   | 0.7            |
-| stickAnimationEase               | `string | gsap.EaseFunction | undefined` | Power4.easeOut |
-| magneticAnimationAmount          | number                                   | 0.2            |
-| magneticAnimationDuration        | number                                   | 0.7            |
-| magneticAnimationEase            | `string | gsap.EaseFunction | undefined` | Power4.easeOut |
-| colorAnimationEase               | `string | gsap.EaseFunction | undefined` | Power4.easeOut |
-| colorAnimationDuration           | number                                   | 0.2            |
-| backgroundImageAnimationEase     | `string | gsap.EaseFunction | undefined` | undefined      |
-| backgroundImageAnimationDuration | number                                   | 0              |
-| sizeAnimationEase                | `string | gsap.EaseFunction | undefined` | Expo.easeOut   |
-| sizeAnimationDuration            | number                                   | 0.5            |
-| textAnimationEase                | `string | gsap.EaseFunction | undefined` | Expo.easeOut   |
-| textAnimationDuration            | number                                   | 1              |
-| cursorSize                       | number                                   | 48             |
-| cursorBackgrounColor             | string                                   | '#000'         |
-| exclusionBackgroundColor         | string                                   | '#fff'         |
-| cursorInnerColor                 | string                                   | '#fff'         |
+| Props                            | Value Type                                 | Default Value  |
+| -------------------------------- | ------------------------------------------ | -------------- |
+| isGelly                          | boolean                                    | false          |
+| animationDuration                | number                                     | 1.25           |
+| animationEase                    | `string /| gsap.EaseFunction /| undefined` | Expo.easeOut   |
+| gellyAnimationAmount             | number                                     | 50             |
+| stickAnimationAmount             | number                                     | 0.09           |
+| stickAnimationDuration           | number                                     | 0.7            |
+| stickAnimationEase               | `string /| gsap.EaseFunction /| undefined` | Power4.easeOut |
+| magneticAnimationAmount          | number                                     | 0.2            |
+| magneticAnimationDuration        | number                                     | 0.7            |
+| magneticAnimationEase            | `string /| gsap.EaseFunction /| undefined` | Power4.easeOut |
+| colorAnimationEase               | `string /| gsap.EaseFunction /| undefined` | Power4.easeOut |
+| colorAnimationDuration           | number                                     | 0.2            |
+| backgroundImageAnimationEase     | `string /| gsap.EaseFunction /| undefined` | undefined      |
+| backgroundImageAnimationDuration | number                                     | 0              |
+| sizeAnimationEase                | `string /| gsap.EaseFunction /| undefined` | Expo.easeOut   |
+| sizeAnimationDuration            | number                                     | 0.5            |
+| textAnimationEase                | `string /| gsap.EaseFunction /| undefined` | Expo.easeOut   |
+| textAnimationDuration            | number                                     | 1              |
+| cursorSize                       | number                                     | 48             |
+| cursorBackgrounColor             | string                                     | '#000'         |
+| exclusionBackgroundColor         | string                                     | '#fff'         |
+| cursorInnerColor                 | string                                     | '#fff'         |
