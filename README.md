@@ -52,7 +52,7 @@ const index = () => {
       <div data-cursor-magnetic>
         <h1>Magnetic Cursor<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -70,7 +70,7 @@ const index = () => {
       <div data-cursor-stick="#stick-title">
         <h1 id="stick-title" style={{textAlign: center}}>Sticky Cursor<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -90,7 +90,7 @@ const index = () => {
       <div data-cursor-color="#61dbfb">
         <h1 id="stick-title">Colorized Cursor<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -108,7 +108,7 @@ const index = () => {
       <div data-cursor-size="80px">
         <h1 id="stick-title">Sized Cursor<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -126,7 +126,7 @@ const index = () => {
       <div data-cursor-background-image="https://reactjs.org/logo-og.png" data-cursor-size="200px">
         <h1 id="stick-title">React.js<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -144,7 +144,7 @@ const index = () => {
       <div data-cursor-exclusion style={{backgroundColor: '#fff'}}>
         <h1 id="stick-title">React.js<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -162,7 +162,7 @@ const index = () => {
       <div data-cursor-background-text="React" data-cursor-size="100px">
         <h1 id="stick-title">React.js<h1>
       </div>
-    </div>
+    </>
   );
 };
 ```
@@ -171,25 +171,25 @@ const index = () => {
 
 | Props                            | Value Type                                 | Default Value  |
 | -------------------------------- | ------------------------------------------ | -------------- |
-| isGelly                          | boolean                                    | false          |
-| animationDuration                | number                                     | 1.25           |
+| isGelly                          | `boolean`                                  | false          |
+| animationDuration                | `number`                                   | 1.25           |
 | animationEase                    | `string \| gsap.EaseFunction \| undefined` | Expo.easeOut   |
-| gellyAnimationAmount             | number                                     | 50             |
-| stickAnimationAmount             | number                                     | 0.09           |
-| stickAnimationDuration           | number                                     | 0.7            |
+| gellyAnimationAmount             | `number`                                   | 50             |
+| stickAnimationAmount             | `number`                                   | 0.09           |
+| stickAnimationDuration           | `number`                                   | 0.7            |
 | stickAnimationEase               | `string \| gsap.EaseFunction \| undefined` | Power4.easeOut |
-| magneticAnimationAmount          | number                                     | 0.2            |
-| magneticAnimationDuration        | number                                     | 0.7            |
+| magneticAnimationAmount          | `number`                                   | 0.2            |
+| magneticAnimationDuration        | `number`                                   | 0.7            |
 | magneticAnimationEase            | `string \| gsap.EaseFunction \| undefined` | Power4.easeOut |
 | colorAnimationEase               | `string \| gsap.EaseFunction \| undefined` | Power4.easeOut |
-| colorAnimationDuration           | number                                     | 0.2            |
+| colorAnimationDuration           | `number`                                   | 0.2            |
 | backgroundImageAnimationEase     | `string \| gsap.EaseFunction \| undefined` | undefined      |
-| backgroundImageAnimationDuration | number                                     | 0              |
+| backgroundImageAnimationDuration | `number`                                   | 0              |
 | sizeAnimationEase                | `string \| gsap.EaseFunction \| undefined` | Expo.easeOut   |
-| sizeAnimationDuration            | number                                     | 0.5            |
+| sizeAnimationDuration            | `number`                                   | 0.5            |
 | textAnimationEase                | `string \| gsap.EaseFunction \| undefined` | Expo.easeOut   |
-| textAnimationDuration            | number                                     | 1              |
-| cursorSize                       | number                                     | 48             |
-| cursorBackgrounColor             | string                                     | '#000'         |
-| exclusionBackgroundColor         | string                                     | '#fff'         |
-| cursorInnerColor                 | string                                     | '#fff'         |
+| textAnimationDuration            | `number`                                   | 1              |
+| cursorSize                       | `number`                                   | 48             |
+| cursorBackgrounColor             | `string`                                   | '#000'         |
+| exclusionBackgroundColor         | `string`                                   | '#fff'         |
+| cursorInnerColor                 | `string`                                   | '#fff'         |
