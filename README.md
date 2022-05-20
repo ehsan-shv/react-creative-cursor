@@ -9,10 +9,10 @@
 - Magnetic cursor
 - Sticky cursor
 - Gelly animation
-- Change background color and background image on specific elements
-- Can add text
-- Can change cursor size smoothly
-- Exclusion effect on specific elements
+- Add background color and background image
+- Add text
+- Change cursor size smoothly
+- Exclusion Mode
 
 <a href="https://react-creative-cursor-demo.vercel.app/">Demo</a>
 
@@ -159,7 +159,7 @@ const index = () => {
   return (
     <>
       <Cursor isGelly={true} />
-      <div data-cursor-background-text="React" data-cursor-size="100px">
+      <div data-cursor-text="React" data-cursor-size="100px">
         <h1 id="stick-title">React.js<h1>
       </div>
     </>
