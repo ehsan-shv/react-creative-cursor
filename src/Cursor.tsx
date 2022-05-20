@@ -100,19 +100,6 @@ export const Cursor: FC<CursorProps> = ({
   exclusionBackgroundColor = '#fff',
   cursorInnerColor = '#fff',
 }) => {
-  if (typeof window !== 'undefined') {
-    if (
-      'ontouchstart' in window ||
-      window.navigator.maxTouchPoints > 0 ||
-      // @ts-ignore: Unreachable code error
-      window.navigator.msMaxTouchPoints > 0 ||
-      // @ts-ignore: Unreachable code error
-      (window.DocumentTouch && document instanceof DocumentTouch)
-    ) {
-      return <></>;
-    }
-  }
-
   const cursor = useRef<HTMLDivElement | null>(null);
   const cursorInner = useRef<HTMLDivElement | null>(null);
 
@@ -121,6 +108,11 @@ export const Cursor: FC<CursorProps> = ({
   const set: any = useInstance();
 
   useLayoutEffect(() => {
+    if (typeof window !== 'undefined') {
+      if ('ontouchstart' in window || window.navigator.maxTouchPoints > 0) {
+        return;
+      }
+    }
     set.x = gsap.quickSetter(cursor.current, 'x', 'px');
     set.y = gsap.quickSetter(cursor.current, 'y', 'px');
 
