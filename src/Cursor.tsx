@@ -108,11 +108,6 @@ export const Cursor: FC<CursorProps> = ({
   const set: any = useInstance();
 
   useLayoutEffect(() => {
-    if (typeof window !== 'undefined') {
-      if ('ontouchstart' in window || window.navigator.maxTouchPoints > 0) {
-        return;
-      }
-    }
     set.x = gsap.quickSetter(cursor.current, 'x', 'px');
     set.y = gsap.quickSetter(cursor.current, 'y', 'px');
 
