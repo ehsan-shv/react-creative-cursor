@@ -50,7 +50,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-magnetic>
-        <h1>Magnetic Cursor<h1>
+        <h1>Magnetic Cursor</h1>
       </div>
     </>
   );
@@ -68,7 +68,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-stick="#stick-title">
-        <h1 id="stick-title" style={{textAlign: center}}>Sticky Cursor<h1>
+        <h1 id="stick-title" style={{textAlign: center}}>Sticky Cursor</h1>
       </div>
     </>
   );
@@ -88,7 +88,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-color="#61dbfb">
-        <h1 id="stick-title">Colorized Cursor<h1>
+        <h1 id="stick-title">Colorized Cursor</h1>
       </div>
     </>
   );
@@ -106,7 +106,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-size="80px">
-        <h1 id="stick-title">Sized Cursor<h1>
+        <h1 id="stick-title">Sized Cursor</h1>
       </div>
     </>
   );
@@ -124,7 +124,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-background-image="https://reactjs.org/logo-og.png" data-cursor-size="200px">
-        <h1 id="stick-title">React.js<h1>
+        <h1 id="stick-title">React.js</h1>
       </div>
     </>
   );
@@ -142,7 +142,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-exclusion style={{backgroundColor: '#fff'}}>
-        <h1 id="stick-title">React.js<h1>
+        <h1 id="stick-title">React.js</h1>
       </div>
     </>
   );
@@ -160,7 +160,7 @@ const index = () => {
     <>
       <Cursor isGelly={true} />
       <div data-cursor-text="React" data-cursor-size="100px">
-        <h1 id="stick-title">React.js<h1>
+        <h1 id="stick-title">React.js</h1>
       </div>
     </>
   );
