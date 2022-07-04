@@ -363,7 +363,7 @@ export const Cursor: FC<CursorProps> = ({
           gsap.to(`#${cursorInner.current.id}`, {
             scale: 0,
             opacity: 0,
-            background: ``,
+            background: `${cursorBackgrounColor}`,
             filter: 'none',
             duration: backgroundImageAnimationDuration,
           });
