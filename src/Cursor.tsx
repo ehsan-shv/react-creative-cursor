@@ -343,6 +343,7 @@ export const Cursor: FC<CursorProps> = ({
             if (cursor.current.style.mixBlendMode === 'exclusion')
               hasExclusionAlready = true;
 
+            // @ts-ignore: Unreachable code error
             cursor.current.style.mixBlendMode = 'exclusion';
             cursor.current.style.backgroundColor = 'transform';
           }
