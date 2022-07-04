@@ -363,8 +363,8 @@ export const Cursor: FC<CursorProps> = ({
         if (e.target instanceof HTMLElement && cursorInner.current) {
           if (cursor.current) {
             // @ts-ignore: Unreachable code error
-            if (!hasExclusionAlready) cursor.current.style.mixBlendMode = '';
             cursor.current.style.backgroundColor = `${cursorBackgrounColor}`;
+            if (!hasExclusionAlready) cursor.current.style.mixBlendMode = '';
           }
           gsap.to(`#${cursorInner.current.id}`, {
             scale: 0,
