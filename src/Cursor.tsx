@@ -362,10 +362,13 @@ export const Cursor: FC<CursorProps> = ({
       el.addEventListener('mouseleave', (e: MouseEvent) => {
         if (e.target instanceof HTMLElement && cursorInner.current) {
           if (cursor.current) {
-            // @ts-ignore: Unreachable code error
-            cursor.current.style.backgroundColor = `${cursorBackgrounColor}`;
-            // @ts-ignore: Unreachable code error
-            if (!hasExclusionAlready) cursor.current.style.mixBlendMode = '';
+            if (!hasExclusionAlready) {
+              // @ts-ignore: Unreachable code error
+              cursor.current.style.mixBlendMode = '';
+              cursor.current.style.backgroundColor = `${exclusionBackgroundColor}`;
+            } else {
+              cursor.current.style.backgroundColor = `${cursorBackgrounColor}`;
+            }
           }
           gsap.to(`#${cursorInner.current.id}`, {
             scale: 0,
