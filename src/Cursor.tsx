@@ -161,6 +161,8 @@ export const Cursor: FC<CursorProps> = ({
 
     let stickStatus = false;
 
+    let hasExclusionAlready = false;
+
     const setFromEvent = (e: MouseEvent) => {
       const areatarget = e.target as HTMLElement;
       let target: Element | null;
@@ -338,6 +340,9 @@ export const Cursor: FC<CursorProps> = ({
         if (e.target instanceof HTMLElement && cursorInner.current) {
           if (cursor.current) {
             // @ts-ignore: Unreachable code error
+            if (cursor.current.style.mixBlendMode === 'exclusion')
+              hasExclusionAlready = true;
+
             cursor.current.style.mixBlendMode = 'exclusion';
             cursor.current.style.backgroundColor = 'transform';
           }
@@ -357,13 +362,13 @@ export const Cursor: FC<CursorProps> = ({
         if (e.target instanceof HTMLElement && cursorInner.current) {
           if (cursor.current) {
             // @ts-ignore: Unreachable code error
-            cursor.current.style.mixBlendMode = '';
+            if (!hasExclusionAlready) cursor.current.style.mixBlendMode = '';
             cursor.current.style.backgroundColor = `${cursorBackgrounColor}`;
           }
           gsap.to(`#${cursorInner.current.id}`, {
             scale: 0,
             opacity: 0,
-            background: `${cursorBackgrounColor}`,
+            background: ``,
             filter: 'none',
             duration: backgroundImageAnimationDuration,
           });
